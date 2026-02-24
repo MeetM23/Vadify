@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const WORDS = ['We', 'Build', 'Brands', 'That', 'Grow.']
+const WORDS = [
+  'We',
+  'Build',
+  'Business',
+  'That',
+  'Win.'
+]
 
 export default function HeroSection() {
     const sectionRef = useRef(null)
@@ -58,7 +64,7 @@ export default function HeroSection() {
                 </h1>
 
                 <p ref={subRef} className="opacity-0 text-t-secondary text-base md:text-lg max-w-md mx-auto leading-relaxed mb-11">
-                    Digital strategy, creative design, and cutting-edge technology — engineered for startups ready to scale.
+                   From strategy and websites to ads and content,<br/> we handle the entire digital battlefield.
                 </p>
 
                 <div ref={ctaRef} className="opacity-0 flex items-center justify-center gap-5 flex-wrap">
