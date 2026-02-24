@@ -2,6 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── CSS Theme Variables ─────────────────────────────────────────────────── */
+:root,
+html.dark {
+  --t-bg: #080808;
+  --t-bg-alt: #0d0d0d;
+  --t-surface: #111111;
+  --t-surface-2: #161616;
+  --t-primary: #ffffff;
+  --t-secondary: #a1a1aa;
+  --t-muted: #52525b;
+  --t-border: rgba(255, 255, 255, 0.07);
+  --t-border-solid: #262626;
+  --t-accent: #1E90FF;
+  --t-grain: 0.04;
+  --t-selection: rgba(255, 255, 255, 0.15);
+  --t-scrollbar: #333333;
+}
+
+html.light {
+  --t-bg: #F4F4F2;
+  --t-bg-alt: #ECEBE8;
+  --t-surface: #FFFFFF;
+  --t-surface-2: #F0EFEC;
+  --t-primary: #111111;
+  --t-secondary: #6B6B6B;
+  --t-muted: #9B9B9B;
+  --t-border: rgba(0, 0, 0, 0.07);
+  --t-border-solid: #DCDCDC;
+  --t-accent: #1E90FF;
+  --t-grain: 0.02;
+  --t-selection: rgba(30, 144, 255, 0.15);
+  --t-scrollbar: #CCCCCC;
+}
+
+/* ── Smooth theme transition ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+header,
+footer,
+main,
+section,
+nav,
+.theme-transition {
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+/* Prevent transition on initial load */
+html.no-transition * {
+  transition: none !important;
+}
+
 @layer base {
   * {
     margin: 0;
@@ -9,60 +67,154 @@
     box-sizing: border-box;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    background-color: #080808;
-    color: #ffffff;
-    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--t-bg);
+    color: var(--t-primary);
+    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--t-selection);
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
+
   ::-webkit-scrollbar-track {
-    background: #080808;
+    background: var(--t-bg);
   }
+
   ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: var(--t-scrollbar);
     border-radius: 3px;
   }
 }
 
 @layer components {
+
+  /* Semantic theme helpers — use these in place of hardcoded hex */
+  .bg-t-bg {
+    background-color: var(--t-bg);
+  }
+
+  .bg-t-bg-alt {
+    background-color: var(--t-bg-alt);
+  }
+
+  .bg-t-surface {
+    background-color: var(--t-surface);
+  }
+
+  .bg-t-surface-2 {
+    background-color: var(--t-surface-2);
+  }
+
+  .text-t-primary {
+    color: var(--t-primary);
+  }
+
+  .text-t-secondary {
+    color: var(--t-secondary);
+  }
+
+  .text-t-muted {
+    color: var(--t-muted);
+  }
+
+  .text-t-accent {
+    color: var(--t-accent);
+  }
+
+  .border-t-border {
+    border-color: var(--t-border);
+  }
+
+  .border-t-solid {
+    border-color: var(--t-border-solid);
+  }
+
+  .accent-line {
+    background-color: var(--t-accent);
+  }
+
+  /* Component presets */
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-gray-100 hover:scale-105;
+    @apply inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.04];
+    background-color: var(--t-primary);
+    color: var(--t-bg);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 border border-white/20 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:border-white/50 hover:bg-white/5;
+    @apply inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300;
+    border: 1px solid var(--t-border-solid);
+    color: var(--t-secondary);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--t-accent);
+    color: var(--t-accent);
   }
 
   .section-tag {
-    @apply text-xs font-medium tracking-widest uppercase text-gray-400 border border-gray-700 px-3 py-1 rounded-full;
+    @apply text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full;
+    color: var(--t-secondary);
+    border: 1px solid var(--t-border-solid);
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent;
+  /* Grid background pattern (reusable) */
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--t-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--t-border) 1px, transparent 1px);
+    background-size: 70px 70px;
+  }
+
+  /* Card base */
+  .theme-card {
+    background-color: var(--t-surface);
+    border: 1px solid var(--t-border);
+    transition: border-color 0.3s ease, background-color 0.5s ease;
+  }
+
+  .theme-card:hover {
+    border-color: rgba(30, 144, 255, 0.3);
   }
 }
 
 @layer utilities {
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
 
-  .opacity-0-initial {
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* ── Founders section — underline animation ──────────────────────────────── */
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
     opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
   }
 }
