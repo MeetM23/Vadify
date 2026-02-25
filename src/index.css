@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Custom font faces ───────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'InterVar';
+  src: url('/fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 /* ── CSS Theme Variables ─────────────────────────────────────────────────── */
 :root,
 html.dark {
@@ -70,9 +89,18 @@ html.no-transition * {
   body {
     background-color: var(--t-bg);
     color: var(--t-primary);
-    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'InterVar', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'ClashDisplay', sans-serif;
   }
 
   ::selection {

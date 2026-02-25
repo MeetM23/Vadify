@@ -10,10 +10,15 @@ import Lenis from 'lenis'
 import { GrainOverlay, CustomCursor } from '../components/home/GrainCursor'
 import Marquee from '../components/home/Marquee'
 import HeroSection from '../components/home/HeroSection'
+import BrandPartners from '../components/home/BrandPartners'
 import PinnedStory from '../components/home/PinnedStory'
+import VadifyStory from '../components/home/VadifyStory'
 import HorizontalScroll from '../components/home/HorizontalScroll'
-import WorkShowcase from '../components/home/WorkShowcase'
+import BrandStories from '../components/home/BrandStories'
+import CreativeCorner from '../components/home/CreativeCorner'
+import GoogleReviews from '../components/home/GoogleReviews'
 import MotionTypography from '../components/home/MotionTypography'
+import HorizontalTestimonials from '../components/home/HorizontalTestimonials'
 import CTASection from '../components/home/CTASection'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -45,7 +50,7 @@ export default function HomePage() {
     }, [])
 
     return (
-        <div className="bg-[#080808] overflow-x-hidden" style={{ cursor: 'none' }}>
+        <div className="bg-t-bg overflow-x-hidden" style={{ cursor: 'none' }}>
             {/* Ambient overlays */}
             <GrainOverlay />
             <CustomCursor />
@@ -53,28 +58,42 @@ export default function HomePage() {
             {/* 1 ── Hero */}
             <HeroSection />
 
+            {/* 6 ── Brand Stories (case study cards) */}
+            <BrandStories />
+
             {/* Marquee divider */}
             <Marquee items={MARQUEE_1} dir={1} speed={45} />
 
-            {/* 2 ── Pinned Storytelling (Strategy → Creative → Technology) */}
+            {/* 3 ── Pinned Storytelling (Strategy → Creative → Technology) */}
             <PinnedStory />
 
-            {/* 3 ── Horizontal Scroll (4 service panels) */}
+            {/* 4 ── Vadify Founder Story */}
+            <CreativeCorner />
+            <VadifyStory />
+
+            {/* 5 ── Horizontal Scroll (4 service panels) */}
             <HorizontalScroll />
 
             {/* Marquee divider */}
             <Marquee items={MARQUEE_2} dir={-1} speed={38} />
 
-            {/* 4 ── Work Showcase */}
-            <WorkShowcase />
+            {/* 7 ── Creative Corner (Instagram posts) */}
 
-            {/* 5 ── Motion Typography */}
-            <MotionTypography />
+
+            {/* 2 ── Brand Partners (authority) */}
+            <BrandPartners />
+
+            {/* 8 ── Motion Typography (conviction bridge) */}
+
 
             {/* Marquee divider */}
             <Marquee items={MARQUEE_3} dir={1} speed={50} />
 
-            {/* 6 ── CTA Banner */}
+            {/* 9 ── Testimonials */}
+            <GoogleReviews />
+            <HorizontalTestimonials />
+            <MotionTypography />
+            {/* 10 ── CTA Banner */}
             <CTASection />
         </div>
     )

@@ -7,8 +7,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
-                display: ['Bebas Neue', 'Impact', 'sans-serif'],
+                sans: ['InterVar', 'Inter', 'system-ui', 'sans-serif'],
+                display: ['ClashDisplay', 'sans-serif'],
+                clash: ['ClashDisplay', 'sans-serif'],
+                inter: ['InterVar', 'Inter', 'sans-serif'],
             },
             colors: {
                 // CSS variable-based semantic tokens — auto-switch with theme

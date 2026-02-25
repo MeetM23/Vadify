@@ -1,41 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import lotsy from '../assets/lotsy.png'
-import foxplay from '../assets/foxplay.png'
-import hardware from '../assets/hardware.png'
-import moodOfWood from '../assets/moodofwood.png'
+import { CASE_STUDIES } from '../data/caseStudies'
 
-function AnimatedSection({ children, className = '', delay = 0 }) {
-    const ref = useRef(null)
-    useEffect(() => {
-        const el = ref.current
-        if (!el) return
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)' }, delay)
-                    observer.unobserve(el)
-                }
-            },
-            { threshold: 0.1 }
-        )
-        observer.observe(el)
-        return () => observer.disconnect()
-    }, [delay])
-    return (
-        <div ref={ref} className={className}
-            style={{ opacity: 0, transform: 'translateY(32px)', transition: 'opacity 0.8s ease, transform 0.8s ease' }}>
-            {children}
-        </div>
-    )
-}
-
-const projects = [
-    { name: 'Lotsy', url: 'https://www.lotsy.in/', description: 'Designed a structured digital storefront to showcase collections with clean visuals and intuitive browsing experience.', image: lotsy, tags: ['E-commerce', 'UI/UX', 'Web'], cover: true },
-    { name: 'Foxplay Clothing', url: 'https://www.foxplayclothing.com/', description: 'Developed a bold, product-focused e-commerce website aligned with brand identity and fast checkout flow.', image: foxplay, tags: ['E-commerce', 'Brand', 'Development'], cover: true },
-    { name: 'Hardware Progress', url: 'https://hardwareprogress.com/', description: 'Built a professional business website focused on product display, trust-building, and clear information hierarchy.', image: hardware, tags: ['Web', 'Development', 'Design'], cover: false },
-    { name: 'Mood of Wood', url: 'https://moodofwood.in/', description: 'A modern website crafted to showcase premium wooden collections with clarity and refined aesthetics. Focused on clean layout, product visibility, and structured browsing experience.', image: moodOfWood, tags: ['E-commerce', 'Branding', 'UI/UX'], cover: false },
-]
+const projects = Object.values(CASE_STUDIES)
 
 export default function CaseStudiesPage() {
     return (
@@ -63,10 +30,14 @@ export default function CaseStudiesPage() {
                                     className="group block rounded-3xl overflow-hidden transition-all duration-300 theme-card">
                                     {/* Image */}
                                     <div className={`relative overflow-hidden bg-t-surface-2 h-56 md:h-64 ${!project.cover ? 'flex items-center justify-center p-8' : ''}`}>
-                                        <img src={project.image} alt={project.name}
+                                        <img src={project.heroImage} alt={project.brand}
                                             className={`transition-transform duration-500 group-hover:scale-105 ${project.cover ? 'absolute inset-0 w-full h-full object-cover' : 'h-full w-auto max-w-full object-contain'}`}
-                                            onError={(e) => { e.currentTarget.style.display = 'none' }}
+                                            onError={(e) => {
+                                                console.error('Failed to load image:', project.heroImage);
+                                                e.currentTarget.style.display = 'none';
+                                            }}
                                         />
+                                        {!project.heroImage && <div className="absolute inset-0 flex items-center justify-center text-t-muted text-[10px]">Image Missing</div>}
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-center justify-center">
                                             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2">
                                                 Visit Site

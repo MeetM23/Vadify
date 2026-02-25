@@ -34,7 +34,7 @@ export default function PinnedStory() {
 
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: wrapRef.current, pin: true, start: 'top top', end: '+=300%', scrub: 1,
+                    trigger: wrapRef.current, pin: true, start: 'top top', end: '+=150%', scrub: 1,
                     onUpdate: (self) => {
                         if (counterRef.current) {
                             const idx = Math.min(Math.floor(self.progress * 3), 2)
