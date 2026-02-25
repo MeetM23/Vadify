@@ -12,7 +12,6 @@ const VIDEO_CARDS = [
         title: 'Founder',
         business: 'Lotsy',
         duration: '1:24',
-        // Interview / talking head style stock video
         src: 'https://mixkit.co/free-stock-video/young-woman-talking-about-her-business-success-34421/young-woman-talking-about-her-business-success-34421-large.mp4',
         thumb: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop',
     },
@@ -35,40 +34,40 @@ const VIDEO_CARDS = [
         thumb: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop',
     },
     {
-        id: 'v3',
-        name: 'Ankit D.',
-        title: 'Director',
-        business: 'Hardware Progress',
-        duration: '2:03',
-        src: 'https://mixkit.co/free-stock-video/professional-man-talking-in-the-office-34424/professional-man-talking-in-the-office-34424-large.mp4',
-        thumb: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop',
+        id: 'v4',
+        name: 'Sarah L.',
+        title: 'CMO',
+        business: 'Vibe Events',
+        duration: '1:45',
+        src: 'https://mixkit.co/free-stock-video/young-woman-talking-about-her-business-success-34421/young-woman-talking-about-her-business-success-34421-large.mp4',
+        thumb: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&auto=format&fit=crop',
     },
     {
-        id: 'v3',
-        name: 'Ankit D.',
-        title: 'Director',
-        business: 'Hardware Progress',
-        duration: '2:03',
-        src: 'https://mixkit.co/free-stock-video/professional-man-talking-in-the-office-34424/professional-man-talking-in-the-office-34424-large.mp4',
-        thumb: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop',
+        id: 'v5',
+        name: 'Michael K.',
+        title: 'Founder',
+        business: 'TechFlow',
+        duration: '2:15',
+        src: 'https://mixkit.co/free-stock-video/man-talking-to-the-camera-near-a-window-7536/man-talking-to-the-camera-near-a-window-7536-large.mp4',
+        thumb: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&auto=format&fit=crop',
     },
     {
-        id: 'v3',
-        name: 'Ankit D.',
-        title: 'Director',
-        business: 'Hardware Progress',
-        duration: '2:03',
+        id: 'v6',
+        name: 'Jessica R.',
+        title: 'Owner',
+        business: 'Urban Green',
+        duration: '1:12',
         src: 'https://mixkit.co/free-stock-video/professional-man-talking-in-the-office-34424/professional-man-talking-in-the-office-34424-large.mp4',
-        thumb: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop',
+        thumb: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&auto=format&fit=crop',
     },
     {
-        id: 'v3',
-        name: 'Ankit D.',
-        title: 'Director',
-        business: 'Hardware Progress',
-        duration: '2:03',
-        src: 'https://mixkit.co/free-stock-video/professional-man-talking-in-the-office-34424/professional-man-talking-in-the-office-34424-large.mp4',
-        thumb: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop',
+        id: 'v7',
+        name: 'David W.',
+        title: 'Product Lead',
+        business: 'Scale AI',
+        duration: '1:30',
+        src: 'https://mixkit.co/free-stock-video/young-woman-talking-about-her-business-success-34421/young-woman-talking-about-her-business-success-34421-large.mp4',
+        thumb: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&auto=format&fit=crop',
     },
 ]
 
@@ -145,7 +144,7 @@ export default function HorizontalTestimonials() {
                         <span className="text-t-muted text-[10px] tracking-[0.3em] uppercase">Social Proof</span>
                     </div>
                     <h2 className="font-display text-[7vw] sm:text-[5vw] md:text-[4vw] lg:text-[3.5vw] text-t-primary uppercase tracking-tight leading-[0.9]">
-                        Success Stories<br/><span className="text-t-accent italic">(Video)</span>
+                        Success Stories<br /><span className="text-t-accent italic">(Video)</span>
                     </h2>
                 </div>
 
@@ -160,7 +159,7 @@ export default function HorizontalTestimonials() {
                 {/* Horizontal snap-scroll row */}
                 <div
                     ref={scrollRef}
-                    className="ht-scroll flex gap-4 overflow-x-auto pb-3"
+                    className="ht-scroll flex gap-6 overflow-x-auto pb-8 px-2"
                     style={{
                         scrollSnapType: 'x mandatory',
                         WebkitOverflowScrolling: 'touch',
@@ -168,75 +167,63 @@ export default function HorizontalTestimonials() {
                         scrollbarColor: '#3a3a3a transparent',
                     }}
                 >
-                    {/* Horizontal snap-scroll row */}
-                    <div
-                        ref={scrollRef}
-                        className="ht-scroll flex gap-6 overflow-x-auto pb-8 px-2"
-                        style={{
-                            scrollSnapType: 'x mandatory',
-                            WebkitOverflowScrolling: 'touch',
-                            scrollbarWidth: 'thin',
-                            scrollbarColor: '#3a3a3a transparent',
-                        }}
-                    >
-                        {/* Video Cards */}
-                        {VIDEO_CARDS.map((card) => (
-                            <div
-                                key={card.id}
-                                className="shrink-0 rounded-[32px] overflow-hidden relative cursor-pointer group"
-                                style={{
-                                    width: '320px',
-                                    height: '480px',
-                                    scrollSnapAlign: 'start',
-                                    border: '1px solid var(--t-border)',
-                                    background: '#000',
-                                    transition: 'all 0.4s cubic-bezier(0.2, 0, 0.2, 1)',
-                                }}
-                                onClick={() => setActiveVideo(card)}
-                            >
-                                {/* Thumbnail */}
-                                <img
-                                    src={card.thumb}
-                                    alt={card.name}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-                                    loading="lazy"
-                                />
+                    {/* Video Cards */}
+                    {VIDEO_CARDS.map((card) => (
+                        <div
+                            key={card.id}
+                            className="shrink-0 rounded-[32px] overflow-hidden relative cursor-pointer group"
+                            style={{
+                                width: '320px',
+                                height: '480px',
+                                scrollSnapAlign: 'start',
+                                border: '1px solid var(--t-border)',
+                                background: '#000',
+                                transition: 'all 0.4s cubic-bezier(0.2, 0, 0.2, 1)',
+                            }}
+                            onClick={() => setActiveVideo(card)}
+                        >
+                            {/* Thumbnail */}
+                            <img
+                                src={card.thumb}
+                                alt={card.name}
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                                loading="lazy"
+                            />
 
-                                {/* Dark overlay */}
-                                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)' }} />
+                            {/* Dark overlay */}
+                            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)' }} />
 
-                                {/* Center play button */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div
-                                        className="w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                                        style={{
-                                            background: 'rgba(255,255,255,0.12)',
-                                            border: '1.5px solid rgba(255,255,255,0.4)',
-                                            backdropFilter: 'blur(10px)',
-                                        }}
-                                    >
-                                        <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
-                                            <path d="M6 4l9 5-9 5V4z" fill="white" />
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                {/* Duration */}
+                            {/* Center play button */}
+                            <div className="absolute inset-0 flex items-center justify-center">
                                 <div
-                                    className="absolute top-4 right-4 text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase"
-                                    style={{ background: 'rgba(255,255,255,0.1)', color: 'white', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.2)' }}
+                                    className="w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                    style={{
+                                        background: 'rgba(255,255,255,0.12)',
+                                        border: '1.5px solid rgba(255,255,255,0.4)',
+                                        backdropFilter: 'blur(10px)',
+                                    }}
                                 >
-                                    {card.duration}
-                                </div>
-
-                                {/* Bottom info */}
-                                <div className="absolute bottom-0 inset-x-0 p-8">
-                                    <p className="text-white text-lg font-bold tracking-tight">{card.name}</p>
-                                    <p className="text-white/60 text-xs font-medium uppercase tracking-widest mt-1">{card.title}, {card.business}</p>
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
+                                        <path d="M6 4l9 5-9 5V4z" fill="white" />
+                                    </svg>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+
+                            {/* Duration */}
+                            <div
+                                className="absolute top-4 right-4 text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase"
+                                style={{ background: 'rgba(255,255,255,0.1)', color: 'white', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.2)' }}
+                            >
+                                {card.duration}
+                            </div>
+
+                            {/* Bottom info */}
+                            <div className="absolute bottom-0 inset-x-0 p-8">
+                                <p className="text-white text-lg font-bold tracking-tight">{card.name}</p>
+                                <p className="text-white/60 text-xs font-medium uppercase tracking-widest mt-1">{card.title}, {card.business}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 

@@ -47,8 +47,6 @@ export default function FoundersSection() {
     const labelRef = useFadeUp(0)
     const headRef = useFadeUp(100)
     const copyRef = useFadeUp(180)
-    const f1Ref = useFadeUp(240)
-    const f2Ref = useFadeUp(360)
 
     return (
         <section
@@ -88,8 +86,7 @@ export default function FoundersSection() {
                         <FounderCard
                             key={founder.name + i}
                             founder={founder}
-                            ref={i === 0 ? f1Ref : f2Ref}
-                            delay={i * 120}
+                            delay={240 + (i * 120)}
                         />
                     ))}
                 </div>
