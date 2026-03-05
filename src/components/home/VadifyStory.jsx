@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import vadifyStoryImg from '../../assets/VadifyStory.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -33,41 +34,21 @@ export default function VadifyStory() {
             <div className="max-w-[1400px] mx-auto">
                 <div className="flex flex-col md:flex-row items-start gap-12 md:gap-20 lg:gap-28">
 
-                    {/* Left — Placeholder founder image */}
+                    {/* Left — Founder image */}
                     <div ref={imgRef} className="w-full md:w-[42%] lg:w-[38%] shrink-0">
                         <div
-                            className="relative w-full rounded-2xl overflow-hidden"
+                            className="relative w-full rounded-2xl overflow-hidden bg-t-surface"
                             style={{
                                 aspectRatio: '4/5',
-                                background: 'var(--t-surface)',
                                 border: '1px solid var(--t-border)',
                                 boxShadow: '0 24px 64px rgba(0,0,0,0.25)',
                             }}
                         >
-                            {/* Stylised placeholder — two founder silhouettes */}
-                            <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 gap-4">
-                                {/* Background gradient */}
-                                <div
-                                    className="absolute inset-0 pointer-events-none"
-                                    style={{ background: 'linear-gradient(160deg, var(--t-surface-2) 0%, var(--t-surface) 100%)' }}
-                                />
-                                {/* Silhouette circles */}
-                                <div className="relative flex items-end justify-center gap-8 w-full px-10">
-                                    <div className="flex flex-col items-center gap-2">
-                                        <div className="w-20 h-20 rounded-full" style={{ background: 'var(--t-surface-2)', border: '2px solid var(--t-border)' }} />
-                                        <div className="w-24 h-28 rounded-t-full" style={{ background: 'var(--t-surface-2)' }} />
-                                    </div>
-                                    <div className="flex flex-col items-center gap-2">
-                                        <div className="w-20 h-20 rounded-full" style={{ background: 'var(--t-border-solid)', border: '2px solid var(--t-border)' }} />
-                                        <div className="w-24 h-28 rounded-t-full" style={{ background: 'var(--t-border-solid)' }} />
-                                    </div>
-                                </div>
-                                {/* Caption */}
-                                <div className="relative text-center">
-                                    <p className="text-t-muted text-[10px] tracking-[0.25em] uppercase">Meet &amp; Team</p>
-                                    <p className="text-t-muted text-[9px] tracking-[0.15em] mt-0.5">Founders, Vadify</p>
-                                </div>
-                            </div>
+                            <img
+                                src={vadifyStoryImg}
+                                alt="Vadify Founders"
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                            />
                         </div>
                     </div>
 

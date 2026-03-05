@@ -3,17 +3,18 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // Asset imports
-import shopifySvg from '../../assets/shopify (1).svg'
+import shopifySvg from '../../assets/Brand Partners/shopify (1).svg'
 // import shopifySvg from '../../assets/shopify.svg'
-import metaSvg from '../../assets/meta-3.svg'
-import googleAdsSvg from '../../assets/google-ads-2.svg'
-import razorpaySvg from '../../assets/razorpay.svg'
-import phonepeSvg from '../../assets/phonepe-1.svg'
-import adobeSvg from '../../assets/adobe-2.svg'
-import figmaSvg from '../../assets/figma-icon.svg'
-import googleAnalyticsSvg from '../../assets/google-analytics-4.svg'
-import wordpressSvg from '../../assets/wordpress-icon.svg'
-import woocommerceSvg from '../../assets/woocommerce-1.svg'
+import metaSvg from '../../assets/Brand Partners/meta-3.svg'
+import googleAdsSvg from '../../assets/Brand Partners/google-ads-2.svg'
+import razorpaySvg from '../../assets/Brand Partners/razorpay.svg'
+import phonepeSvg from '../../assets/Brand Partners/phonepe-1.svg'
+import adobeSvg from '../../assets/Brand Partners/adobe-2.svg'
+import figmaSvg from '../../assets/Brand Partners/figma-icon.svg'
+import googleAnalyticsSvg from '../../assets/Brand Partners/google-analytics-4.svg'
+import wordpressSvg from '../../assets/Brand Partners/wordpress-icon.svg'
+import woocommerceSvg from '../../assets/Brand Partners/woocommerce-1.svg'
+import shopifyDarkSvg from "../../assets/Brand Partners/shopify.svg";
 
 gsap.registerPlugin(ScrollTrigger)
 

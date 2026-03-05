@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 
+import darshanPhoto from '../assets/About-Darshan.jpeg'
+
 /* ─────────────────────────────────────────────────────────────────
    EDIT THESE — replace with real names, roles, and photo imports
    ───────────────────────────────────────────────────────────────── */
@@ -9,7 +11,7 @@ const FOUNDERS = [
         role: 'Founder',
         focus: 'Strategy & Growth',
         initials: 'DV',
-        // photo: founderOnePhoto, ← import your image and uncomment
+        photo: darshanPhoto,
     },
     {
         name: 'Meet Modasiya',
@@ -162,8 +164,7 @@ const FounderCard = ({ founder, delay }) => {
                     <img
                         src={founder.photo}
                         alt={founder.name}
-                        className="absolute inset-0 w-full h-full object-cover grayscale"
-                        style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                        className="absolute inset-0 w-full h-full object-cover "
                     />
                 ) : (
                     /* Placeholder — shows initials until a real photo is added */

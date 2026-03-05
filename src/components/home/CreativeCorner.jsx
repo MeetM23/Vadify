@@ -1,9 +1,9 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import foxplay from '../../assets/foxplay.png'
-import lotsy from '../../assets/lotsy.png'
-import hardware from '../../assets/hardware.png'
+import foxplay from '../../assets/Foxplay-black.png'
+import lotsy from '../../assets/Lotsy.png'
+import hardware from '../../assets/Hardware.png'
 import moodofwood from '../../assets/moodofwood.png'
 
 gsap.registerPlugin(ScrollTrigger)

@@ -23,50 +23,73 @@ export default function CaseStudiesPage() {
 
             {/* Projects Grid */}
             <section className="py-20 px-6 bg-t-bg">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                         {projects.map((project, i) => {
                             const tags = project.tags || (project.category ? project.category.split(' · ') : [])
                             return (
                                 <AnimatedSection key={project.brand || i} delay={i * 100}>
-                                    <a href={project.websiteUrl || '#'} target="_blank" rel="noopener noreferrer"
-                                        className="group block rounded-3xl overflow-hidden transition-all duration-300 theme-card">
-                                        {/* Image */}
-                                        <div className={`relative overflow-hidden bg-t-surface-2 h-56 md:h-64 ${!project.cover ? 'flex items-center justify-center p-8' : ''}`}>
-                                            <img src={project.heroImage} alt={project.brand}
-                                                className={`transition-transform duration-500 group-hover:scale-105 ${project.cover ? 'absolute inset-0 w-full h-full object-cover' : 'h-full w-auto max-w-full object-contain'}`}
+                                    <div className="group block relative">
+                                        <a
+                                            href={project.comingSoon ? undefined : (project.websiteUrl || '#')}
+                                            target={project.comingSoon ? undefined : "_blank"}
+                                            rel={project.comingSoon ? undefined : "noopener noreferrer"}
+                                            className={`block mb-5 overflow-hidden rounded-2xl bg-t-surface-2 aspect-[3/2] relative ${project.comingSoon ? 'cursor-default' : 'cursor-pointer'}`}
+                                        >
+                                            <img
+                                                src={project.heroImage}
+                                                alt={project.brand}
+                                                className={`w-full h-full object-contain p-8 md:p-12 transition-transform duration-700 group-hover:scale-105 ${project.slug === 'foxplay' && !project.cover ? 'invert dark:invert-0' : ''
+                                                    }`}
+                                                style={{ objectPosition: 'center' }}
                                                 onError={(e) => {
                                                     console.error('Failed to load image:', project.heroImage);
                                                     e.currentTarget.style.display = 'none';
                                                 }}
                                             />
                                             {!project.heroImage && <div className="absolute inset-0 flex items-center justify-center text-t-muted text-[10px]">Image Missing</div>}
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-center justify-center">
-                                                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2">
-                                                    Visit Site
-                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H2.5M8.5 1.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                                </span>
+
+                                            {/* Overlay for active projects */}
+                                            {!project.comingSoon && (
+                                                <>
+                                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-400 pointer-events-none" />
+                                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 bg-white text-black text-xs font-bold px-5 py-2.5 rounded-full flex items-center gap-2 shadow-xl">
+                                                            Visit Site
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H2.5M8.5 1.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                                        </span>
+                                                    </div>
+                                                </>
+                                            )}
+                                        </a>
+
+                                        {/* Content - Minimalist Text Below */}
+                                        <div className="flex flex-col gap-2 relative">
+                                            <div className="flex items-center justify-between">
+                                                <h2 className="text-t-primary font-semibold text-xl md:text-2xl tracking-tight">{project.brand}</h2>
+                                                {project.comingSoon ? (
+                                                    <span className="text-[11px] font-bold tracking-widest uppercase text-t-muted px-3 py-1 bg-t-surface-2 rounded-full border border-t-border shrink-0">
+                                                        Coming Soon
+                                                    </span>
+                                                ) : (
+                                                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="text-t-muted group-hover:text-t-primary transition-colors shrink-0 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0">
+                                                        <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                    </svg>
+                                                )}
                                             </div>
-                                        </div>
-                                        {/* Content */}
-                                        <div className="p-7 bg-t-surface">
-                                            <div className="flex items-start justify-between mb-3">
-                                                <h2 className="text-t-primary font-bold text-xl tracking-tight group-hover:text-t-accent transition-colors">{project.brand}</h2>
-                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-t-muted group-hover:text-t-accent transition-colors shrink-0 mt-1">
-                                                    <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </div>
-                                            <p className="text-t-secondary text-sm leading-relaxed mb-5">{project.headline}</p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {tags.map((tag) => (
-                                                    <span key={tag} className="text-xs text-t-muted px-2.5 py-1 rounded-full"
-                                                        style={{ border: '1px solid var(--t-border-solid)' }}>
+
+                                            <div className="flex items-center gap-2 mb-2">
+                                                {tags.map((tag, idx) => (
+                                                    <span key={tag} className="text-xs text-t-muted font-medium flex items-center">
                                                         {tag}
+                                                        {idx < tags.length - 1 && <span className="mx-2 text-t-border/50">•</span>}
                                                     </span>
                                                 ))}
                                             </div>
+
+                                            <p className="text-t-secondary text-sm leading-relaxed max-w-lg">{project.headline}</p>
                                         </div>
-                                    </a>
+                                    </div>
                                 </AnimatedSection>
                             )
                         })}

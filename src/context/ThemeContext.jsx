@@ -5,7 +5,7 @@ const ThemeContext = createContext({ theme: 'dark', toggle: () => { } })
 export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
         const stored = localStorage.getItem('vadify-theme')
-        if (stored) return stored
+        if (stored) return stored 
         return 'light'
     })
 

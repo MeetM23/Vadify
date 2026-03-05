@@ -2,9 +2,9 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import lotsy from '../../assets/lotsy.png'
-import foxplay from '../../assets/foxplay.png'
-import hardware from '../../assets/hardware.png'
+import lotsy from '../../assets/Lotsy.png'
+import foxplay from '../../assets/Foxplay-black.png'
+import hardware from '../../assets/Hardware.png'
 import moodOfWood from '../../assets/moodofwood.png'
 
 const PROJECTS = [
