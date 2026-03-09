@@ -64,7 +64,7 @@ export default function HorizontalScroll() {
                                 </Link>
                             ) : (
                                 <Link to="/services" className="text-t-muted text-sm hover:text-t-primary transition-colors flex items-center gap-2">
-                                    Learn more
+                                    Explore our digital growth solutions
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                         <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>

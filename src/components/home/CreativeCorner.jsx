@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import foxplay from '../../assets/Foxplay-black.png'
-import lotsy from '../../assets/Lotsy.png'
-import hardware from '../../assets/Hardware.png'
-import moodofwood from '../../assets/moodofwood.png'
+import foxplay from '../../assets/Foxplay-black.webp'
+import lotsy from '../../assets/Lotsy.webp'
+import hardware from '../../assets/Hardware.webp'
+import moodofwood from '../../assets/moodofwood.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -71,10 +71,10 @@ export default function CreativeCorner() {
                         {/* Mockup Card */}
                         <div className="mt-auto relative mockup-float pb-4">
                             <div className="w-[190px] aspect-[3/4] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white transform -rotate-3 transition-transform duration-700 group-hover:-rotate-6">
-                                <img src={foxplay} className="w-full h-full object-cover" alt="" />
+                                <img src={foxplay} width="3375" height="1368" loading="lazy" className="w-full h-full object-cover" alt="" />
                             </div>
                             <div className="absolute -right-4 top-1/2 w-[160px] aspect-[3/4] bg-[#FFE0B2] rounded-2xl shadow-2xl overflow-hidden border-4 border-white transform rotate-12 transition-transform duration-700 group-hover:rotate-15">
-                                <img src={lotsy} className="w-full h-full object-cover" alt="" />
+                                <img src={lotsy} width="3375" height="1368" loading="lazy" className="w-full h-full object-cover" alt="" />
                             </div>
                         </div>
 
@@ -95,12 +95,12 @@ export default function CreativeCorner() {
                             {/* Grid preview mockup */}
                             <div className="grid grid-cols-2 gap-2 w-[180px]">
                                 <div className="aspect-square bg-white/80 rounded-xl overflow-hidden shadow-sm border border-white/20">
-                                    <img src={moodofwood} className="w-full h-full object-cover opacity-80" alt="" />
+                                    <img src={moodofwood} width="2326" height="1127" loading="lazy" className="w-full h-full object-cover opacity-80" alt="" />
                                 </div>
                                 <div className="aspect-square bg-white/40 rounded-xl" />
                                 <div className="aspect-square bg-white/40 rounded-xl" />
                                 <div className="aspect-square bg-white/80 rounded-xl overflow-hidden shadow-sm border border-white/20">
-                                    <img src={hardware} className="w-full h-full object-cover opacity-80" alt="" />
+                                    <img src={hardware} width="420" height="162" loading="lazy" className="w-full h-full object-cover opacity-80" alt="" />
                                 </div>
                             </div>
                         </div>

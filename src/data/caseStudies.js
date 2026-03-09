@@ -1,13 +1,14 @@
 // ── Shared case study data — source of truth for BrandStories + CaseStudy page ─
-import foxplayImg from '../assets/Foxplay-black.png'
-import lotsyImg from '../assets/Lotsy.png'
-import hardwareImg from '../assets/Hardware.png'
-import moodofwoodImg from '../assets/moodofwood.png'
-import kbImg from '../assets/KB.png'
-import trustOfQualityImg from '../assets/Trust of Quality.png'
+import foxplayImg from '../assets/Foxplay-black.webp'
+import foxplayWhiteImg from '../assets/Foxplay-White.webp'
+import lotsyImg from '../assets/Lotsy.webp'
+import hardwareImg from '../assets/Hardware.webp'
+import moodofwoodImg from '../assets/moodofwood.webp'
+import kbImg from '../assets/KB.webp'
+import trustOfQualityImg from '../assets/Trust of Quality.webp'
 
 export const CASE_STUDIES = {
-   
+
     'hardware-progress': {
         slug: 'hardware-progress',
         brand: 'Hardware Progress',
@@ -19,8 +20,9 @@ export const CASE_STUDIES = {
         headline: 'Technical Overhaul That Doubled Lead Quality',
         outcome: 'Rebuilt web infrastructure → 55% drop in bounce rate.',
         heroImage: hardwareImg,
+        imgWidth: 420,
+        imgHeight: 162,
         cover: true,
-        imagePosition: 'top center',
         challenge: 'Hardware Progress had a website that looked outdated, loaded slow, and generated no qualified leads. Traffic existed — conversion didn\'t.',
         strategy: 'Full technical audit: Core Web Vitals, UX flow analysis, content hierarchy, and SEO architecture. Identified that 70% of bounce happened in the first 4 seconds.',
         execution: [
@@ -29,13 +31,6 @@ export const CASE_STUDIES = {
             'Implemented lead capture system with CRM integration and automated follow-up.',
             'SEO foundation: technical cleanup, structured data, and content optimisation.',
         ],
-        results: [
-            { metric: '55%', label: 'Bounce Rate Drop' },
-            { metric: '2.8×', label: 'Lead Quality Score' },
-            { metric: '0.9s', label: 'Page Load Time (LCP)' },
-            { metric: '42%', label: 'Organic Traffic Growth' },
-        ],
-        resultImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop',
     },
     'mood-of-wood': {
         slug: 'mood-of-wood',
@@ -48,6 +43,8 @@ export const CASE_STUDIES = {
         headline: 'Scaled a Niche Furniture Brand with Precision Creative',
         outcome: 'Lifestyle creative system + Meta ads → 2.6× monthly revenue growth.',
         heroImage: moodofwoodImg,
+        imgWidth: 2326,
+        imgHeight: 1127,
         cover: true,
         challenge: 'Mood Of Wood was selling handcrafted furniture but struggling to communicate premium quality through digital ads. Their conversion rate was below 0.8%.',
         strategy: 'Lifestyle-first creative strategy. We built a photography brief around warmth, craftsmanship, and home aspiration — then built the ad system on top of it.',
@@ -76,8 +73,9 @@ export const CASE_STUDIES = {
         headline: 'Cinematic Offline Super Store Launch',
         outcome: 'Premium video production and shoot for large-scale retail like Amazon.',
         heroImage: kbImg,
+        imgWidth: 10547,
+        imgHeight: 13184,
         cover: true,
-        imagePosition: 'center',
         comingSoon: true,
         challenge: 'A massive offline super store required a cinematic showcase to highlight their incredible scale and inventory.',
         strategy: 'High-end on-location shoot capturing the vastness of the space and the premium nature of the shopping experience.',
@@ -96,6 +94,8 @@ export const CASE_STUDIES = {
         headline: 'Elegant Visuals for Luxury Jewellery',
         outcome: 'High-end video editing and shoot production highlighting intricate details.',
         heroImage: trustOfQualityImg,
+        imgWidth: 10547,
+        imgHeight: 13184,
         cover: true,
         imagePosition: 'center',
         comingSoon: true,
@@ -104,7 +104,7 @@ export const CASE_STUDIES = {
         execution: [],
         results: [],
         resultImg: '',
-    },    foxplay: {
+    }, foxplay: {
         slug: 'foxplay',
         brand: 'Foxplay Clothing',
         abbr: 'FP',
@@ -114,9 +114,11 @@ export const CASE_STUDIES = {
         websiteUrl: 'https://foxplayclothing.com',
         headline: 'Built a Brand Identity That Converts at Scroll',
         outcome: 'Full brand + Meta creative system → 3× conversion rate uplift.',
-        heroImage: foxplayImg,
+        heroImage: foxplayWhiteImg,
+        heroImageDark: foxplayImg,
+        imgWidth: 3375,
+        imgHeight: 1368,
         cover: true,
-        imagePosition: 'center',
         challenge: 'Foxplay had great products but zero brand presence online. Customers weren\'t stopping. The feed creative wasn\'t communicating trust or identity.',
         strategy: 'Brand architecture first. We built a visual language system before touching any ads — colour codes, type hierarchy, photography direction, and tone of voice.',
         execution: [
@@ -143,6 +145,8 @@ export const CASE_STUDIES = {
         headline: 'From Zero Traction to 4× ROAS in 60 Days',
         outcome: 'Restructured ad account + landing page → consistent daily revenue.',
         heroImage: lotsyImg,
+        imgWidth: 3375,
+        imgHeight: 1368,
         cover: true,
         challenge: 'Lotsy was running paid ads with zero conversion architecture. High spend, zero consistency. The product had potential — the system didn\'t.',
         strategy: 'We audited the full funnel: ad account structure, creative hooks, and the landing page CRO. Found 6 critical leaks in the conversion path.',

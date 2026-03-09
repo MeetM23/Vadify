@@ -1,7 +1,7 @@
 import React from 'react'
 import { CASE_STUDIES } from '../../data/caseStudies'
-import foxplayBlack from '../../assets/Foxplay-black.png'
-import foxplayWhite from '../../assets/Foxplay-White.png'
+import foxplayBlack from '../../assets/Foxplay-black.webp'
+import foxplayWhite from '../../assets/Foxplay-White.webp'
 
 const STORIES = Object.values(CASE_STUDIES)
 
@@ -27,13 +27,19 @@ export default function BrandStories() {
                                     <>
                                         {/* Light Mode Logo */}
                                         <img
-                                            src={foxplayBlack}
+                                            src={foxplayWhite}
+                                            width="3375"
+                                            height="1294"
+                                            loading="lazy"
                                             alt={s.brand}
                                             className="max-h-[60px] w-auto object-contain transition-all duration-300 dark:hidden"
                                         />
                                         {/* Dark Mode Logo */}
                                         <img
-                                            src={foxplayWhite}
+                                            src={foxplayBlack}
+                                            width="3375"
+                                            height="1368"
+                                            loading="lazy"
                                             alt={s.brand}
                                             className="max-h-[60px] w-auto object-contain transition-all duration-300 hidden dark:block"
                                         />
@@ -41,6 +47,9 @@ export default function BrandStories() {
                                 ) : (
                                     <img
                                         src={s.heroImage}
+                                        width={s.imgWidth}
+                                        height={s.imgHeight}
+                                        loading="lazy"
                                         alt={s.brand}
                                         className="max-h-[60px] w-auto object-contain transition-all duration-300"
                                     />

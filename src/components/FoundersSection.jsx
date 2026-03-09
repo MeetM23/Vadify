@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-import darshanPhoto from '../assets/About-Darshan.jpeg'
+import darshanPhoto from '../assets/About-Darshan.webp'
+import meetPhoto from '../assets/About-Meet.webp'
 
 /* ─────────────────────────────────────────────────────────────────
    EDIT THESE — replace with real names, roles, and photo imports
@@ -12,13 +13,17 @@ const FOUNDERS = [
         focus: 'Strategy & Growth',
         initials: 'DV',
         photo: darshanPhoto,
+        imgWidth: 3376,
+        imgHeight: 6000,
     },
     {
         name: 'Meet Modasiya',
         role: 'Co-Founder',
         focus: 'Creative & Technology',
         initials: 'MM',
-        // photo: founderTwoPhoto,
+        photo: meetPhoto,
+        imgWidth: 756,
+        imgHeight: 1008,
     },
 ]
 
@@ -163,6 +168,9 @@ const FounderCard = ({ founder, delay }) => {
                 {founder.photo ? (
                     <img
                         src={founder.photo}
+                        width={founder.imgWidth}
+                        height={founder.imgHeight}
+                        loading="lazy"
                         alt={founder.name}
                         className="absolute inset-0 w-full h-full object-cover "
                     />

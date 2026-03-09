@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useEffect, useState } from 'react'
+import { useLayoutEffect, useRef, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -131,12 +131,32 @@ export default function CaseStudyPage() {
 
                     {/* Hero image */}
                     <div className={`relative w-full rounded-2xl overflow-hidden bg-t-surface-2 ${!study.cover ? 'flex items-center justify-center p-12 md:p-20' : ''}`} style={{ height: '480px', border: '1px solid var(--t-border)' }}>
-                        <img
-                            src={study.heroImage}
-                            alt={study.brand}
-                            className={`transition-transform duration-700 ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
-                            loading="lazy"
-                        />
+                        {study.heroImageDark ? (
+                            <>
+                                <img
+                                    src={study.heroImage}
+                                    width={study.imgWidth}
+                                    height={study.imgHeight}
+                                    alt={study.brand}
+                                    className={`transition-transform duration-700 dark:hidden ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
+                                />
+                                <img
+                                    src={study.heroImageDark}
+                                    width={study.imgWidth}
+                                    height={study.imgHeight}
+                                    alt={study.brand}
+                                    className={`transition-transform duration-700 hidden dark:block ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
+                                />
+                            </>
+                        ) : (
+                            <img
+                                src={study.heroImage}
+                                width={study.imgWidth}
+                                height={study.imgHeight}
+                                alt={study.brand}
+                                className={`transition-transform duration-700 ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
+                            />
+                        )}
                         {/* Accent tint overlay */}
                         <div className="absolute inset-0 pointer-events-none" style={{ background: study.cover ? `linear-gradient(to right, ${accent}14 0%, transparent 60%)` : 'transparent' }} />
                     </div>
@@ -207,7 +227,7 @@ export default function CaseStudyPage() {
 
                         {/* Result image */}
                         <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--t-border)' }}>
-                            <img src={study.resultImg} alt="Results" className="w-full h-60 md:h-72 object-cover" loading="lazy" />
+                            <img src={study.resultImg} width="1200" height="800" alt="Results" className="w-full h-60 md:h-72 object-cover" loading="lazy" />
                         </div>
                     </div>
 
@@ -278,7 +298,14 @@ export default function CaseStudyPage() {
                                 className="group relative rounded-2xl overflow-hidden flex items-end p-5 transition-all duration-300 hover:scale-[1.01]"
                                 style={{ height: '160px', border: '1px solid var(--t-border)' }}
                             >
-                                <img src={s.heroImage} alt={s.brand} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                {s.heroImageDark ? (
+                                    <>
+                                        <img src={s.heroImage} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover dark:hidden" loading="lazy" />
+                                        <img src={s.heroImageDark} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover hidden dark:block" loading="lazy" />
+                                    </>
+                                ) : (
+                                    <img src={s.heroImage} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                )}
                                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%)' }} />
                                 <div className="relative">
                                     <p className="text-white font-display text-base uppercase tracking-tight leading-tight">{s.brand}</p>

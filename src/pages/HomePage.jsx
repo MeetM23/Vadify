@@ -2,7 +2,7 @@
  * HomePage.jsx — Premium Motion-Driven Homepage
  * Lenis smooth scroll + GSAP ScrollTrigger + section components
  */
-import { useEffect } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
@@ -10,16 +10,17 @@ import Lenis from 'lenis'
 import { GrainOverlay, CustomCursor } from '../components/home/GrainCursor'
 import Marquee from '../components/home/Marquee'
 import HeroSection from '../components/home/HeroSection'
-import BrandPartners from '../components/home/BrandPartners'
-import PinnedStory from '../components/home/PinnedStory'
-import VadifyStory from '../components/home/VadifyStory'
-import HorizontalScroll from '../components/home/HorizontalScroll'
-import BrandStories from '../components/home/BrandStories'
-import CreativeCorner from '../components/home/CreativeCorner'
-import GoogleReviews from '../components/home/GoogleReviews'
-import MotionTypography from '../components/home/MotionTypography'
-import HorizontalTestimonials from '../components/home/HorizontalTestimonials'
-import CTASection from '../components/home/CTASection'
+
+const BrandPartners = lazy(() => import('../components/home/BrandPartners'))
+const PinnedStory = lazy(() => import('../components/home/PinnedStory'))
+const VadifyStory = lazy(() => import('../components/home/VadifyStory'))
+const HorizontalScroll = lazy(() => import('../components/home/HorizontalScroll'))
+const BrandStories = lazy(() => import('../components/home/BrandStories'))
+const CreativeCorner = lazy(() => import('../components/home/CreativeCorner'))
+const GoogleReviews = lazy(() => import('../components/home/GoogleReviews'))
+const MotionTypography = lazy(() => import('../components/home/MotionTypography'))
+const HorizontalTestimonials = lazy(() => import('../components/home/HorizontalTestimonials'))
+const CTASection = lazy(() => import('../components/home/CTASection'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -58,43 +59,45 @@ export default function HomePage() {
             {/* 1 ── Hero */}
             <HeroSection />
 
-            {/* 6 ── Brand Stories (case study cards) */}
-            <BrandStories />
+            <Suspense fallback={null}>
+                {/* 6 ── Brand Stories (case study cards) */}
+                <BrandStories />
 
-            {/* Marquee divider */}
-            <Marquee items={MARQUEE_1} dir={1} speed={45} />
+                {/* Marquee divider */}
+                <Marquee items={MARQUEE_1} dir={1} speed={45} />
 
-            {/* 3 ── Pinned Storytelling (Strategy → Creative → Technology) */}
-            <PinnedStory />
+                {/* 3 ── Pinned Storytelling (Strategy → Creative → Technology) */}
+                <PinnedStory />
 
-            {/* 4 ── Vadify Founder Story */}
-            <CreativeCorner />
-            <VadifyStory />
+                {/* 4 ── Vadify Founder Story */}
+                <CreativeCorner />
+                <VadifyStory />
 
-            {/* 5 ── Horizontal Scroll (4 service panels) */}
-            <HorizontalScroll />
+                {/* 5 ── Horizontal Scroll (4 service panels) */}
+                <HorizontalScroll />
 
-            {/* Marquee divider */}
-            <Marquee items={MARQUEE_2} dir={-1} speed={38} />
+                {/* Marquee divider */}
+                <Marquee items={MARQUEE_2} dir={-1} speed={38} />
 
-            {/* 7 ── Creative Corner (Instagram posts) */}
-
-
-            {/* 2 ── Brand Partners (authority) */}
-            <BrandPartners />
-
-            {/* 8 ── Motion Typography (conviction bridge) */}
+                {/* 7 ── Creative Corner (Instagram posts) */}
 
 
-            {/* Marquee divider */}
-            <Marquee items={MARQUEE_3} dir={1} speed={50} />
+                {/* 2 ── Brand Partners (authority) */}
+                <BrandPartners />
 
-            {/* 9 ── Testimonials */}
-            <GoogleReviews />
-            <HorizontalTestimonials />
-            <MotionTypography />
-            {/* 10 ── CTA Banner */}
-            <CTASection />
+                {/* 8 ── Motion Typography (conviction bridge) */}
+
+
+                {/* Marquee divider */}
+                <Marquee items={MARQUEE_3} dir={1} speed={50} />
+
+                {/* 9 ── Testimonials */}
+                <GoogleReviews />
+                <HorizontalTestimonials />
+                <MotionTypography />
+                {/* 10 ── CTA Banner */}
+                <CTASection />
+            </Suspense>
         </div>
     )
 }

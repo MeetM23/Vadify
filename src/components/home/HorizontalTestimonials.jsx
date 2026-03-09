@@ -185,6 +185,8 @@ export default function HorizontalTestimonials() {
                             {/* Thumbnail */}
                             <img
                                 src={card.thumb}
+                                width="600"
+                                height="800"
                                 alt={card.name}
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
                                 loading="lazy"

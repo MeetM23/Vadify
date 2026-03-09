@@ -2,16 +2,16 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import lotsy from '../../assets/Lotsy.png'
-import foxplay from '../../assets/Foxplay-black.png'
-import hardware from '../../assets/Hardware.png'
-import moodOfWood from '../../assets/moodofwood.png'
+import lotsy from '../../assets/Lotsy.webp'
+import foxplay from '../../assets/Foxplay-black.webp'
+import hardware from '../../assets/Hardware.webp'
+import moodOfWood from '../../assets/moodofwood.webp'
 
 const PROJECTS = [
-    { name: 'Lotsy', url: 'https://www.lotsy.in/', tag: 'E-commerce · UI/UX', image: lotsy, cover: true },
-    { name: 'Foxplay Clothing', url: 'https://www.foxplayclothing.com/', tag: 'E-commerce · Brand', image: foxplay, cover: true },
-    { name: 'Hardware Progress', url: 'https://hardwareprogress.com/', tag: 'Web · Development', image: hardware, cover: false },
-    { name: 'Mood of Wood', url: 'https://moodofwood.in/', tag: 'E-commerce · UI/UX', image: moodOfWood, cover: false },
+    { name: 'Lotsy', url: 'https://www.lotsy.in/', tag: 'E-commerce · UI/UX', image: lotsy, imgWidth: 3375, imgHeight: 1368, cover: true },
+    { name: 'Foxplay Clothing', url: 'https://www.foxplayclothing.com/', tag: 'E-commerce · Brand', image: foxplay, imgWidth: 3375, imgHeight: 1368, cover: true },
+    { name: 'Hardware Progress', url: 'https://hardwareprogress.com/', tag: 'Web · Development', image: hardware, imgWidth: 420, imgHeight: 162, cover: false },
+    { name: 'Mood of Wood', url: 'https://moodofwood.in/', tag: 'E-commerce · UI/UX', image: moodOfWood, imgWidth: 2326, imgHeight: 1127, cover: false },
 ]
 
 export default function WorkShowcase() {
@@ -58,7 +58,7 @@ export default function WorkShowcase() {
                             href={p.url} target="_blank" rel="noopener noreferrer"
                             className="group relative overflow-hidden rounded-2xl theme-card">
                             <div className="relative overflow-hidden h-60 md:h-72 bg-t-surface-2">
-                                <img src={p.image} alt={p.name}
+                                <img src={p.image} width={p.imgWidth} height={p.imgHeight} loading="lazy" alt={p.name}
                                     className={`ws-img absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 ${p.cover ? 'object-cover' : 'object-contain p-8'}`} />
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-500" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

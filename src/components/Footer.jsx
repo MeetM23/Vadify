@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoSvg from '../assets/vadify-logo.png'
+import logoSvg from '../assets/vadify-logo.webp'
 
 const NAV_COLS = [
     {
@@ -79,7 +79,7 @@ export default function Footer() {
 
                     {/* Brand column — spans 2 cols on large */}
                     <div className="lg:col-span-2 flex flex-col gap-5">
-                        <Link to="/"><img src={logoSvg} alt="Vadify" className="h-7 w-auto" /></Link>
+                        <Link to="/"><img src={logoSvg} alt="Vadify" width="1821" height="466" loading="lazy" className="h-7 w-auto" /></Link>
                         <p className="text-t-secondary text-sm leading-relaxed max-w-xs">
                             Digital growth studio for startups.<br />
                             Strategy. Creative. Technology.
