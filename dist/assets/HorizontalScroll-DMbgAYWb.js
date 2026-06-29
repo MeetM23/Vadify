@@ -1,4 +1,4 @@
-import{r as n,g as o,S as c,j as e,L as l}from"./index-Dyp6aqTE.js";const d=[{num:"01",title:`Performance
+import{r as n,g as o,S as c,j as e,L as l}from"./index-CnoceIP4.js";const d=[{num:"01",title:`Performance
 Marketing`,desc:"Meta Ads, Google Ads, lead generation systems. We turn every rupee of ad spend into measurable pipeline growth.",tag:"Performance",cta:!1},{num:"02",title:`Brand &
 Creative`,desc:"Visual identities, design systems, social creatives. We build brands that communicate confidence at first glance.",tag:"Creative",cta:!1},{num:"03",title:`Technology
 & Web`,desc:"Fast, conversion-optimised websites and digital systems. Technology that supports growth rather than limiting it.",tag:"Technology",cta:!1},{num:"04",title:`Let's build
