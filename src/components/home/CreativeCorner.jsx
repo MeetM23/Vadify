@@ -1,10 +1,20 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import foxplay from '../../assets/Foxplay-black.webp'
-import lotsy from '../../assets/Lotsy.webp'
-import hardware from '../../assets/Hardware.webp'
-import moodofwood from '../../assets/moodofwood.webp'
+import foxplay600 from '../../assets/resized/Foxplay-black-600.webp'
+import foxplay1200 from '../../assets/resized/Foxplay-black-1200.webp'
+import lotsy600 from '../../assets/resized/Lotsy-600.webp'
+import lotsy1200 from '../../assets/resized/Lotsy-1200.webp'
+import hardware200 from '../../assets/resized/Hardware-200.webp'
+import hardware400 from '../../assets/resized/Hardware-400.webp'
+import moodofwood600 from '../../assets/resized/moodofwood-600.webp'
+import moodofwood1200 from '../../assets/resized/moodofwood-1200.webp'
+import EditorialFeeds from '../../assets/Editorial_Feeds.webp'
+import CarouselNarratives from '../../assets/Carousel_Narratives.webp'
+import CampaignVisuals from '../../assets/Campaign_Visuals.webp'
+import CampaignVisuals_2 from '../../assets/Campaign_Visuals_2.webp'
+
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -71,16 +81,16 @@ export default function CreativeCorner() {
                         {/* Mockup Card */}
                         <div className="mt-auto relative mockup-float pb-4">
                             <div className="w-[190px] aspect-[3/4] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white transform -rotate-3 transition-transform duration-700 group-hover:-rotate-6">
-                                <img src={foxplay} width="3375" height="1368" loading="lazy" className="w-full h-full object-cover" alt="" />
+                                <img src={CampaignVisuals} srcSet={`${CampaignVisuals} 600w, ${CampaignVisuals} 1200w`} sizes="190px" loading="lazy" decoding="async" className="w-full h-full object-cover" alt="" />
                             </div>
                             <div className="absolute -right-4 top-1/2 w-[160px] aspect-[3/4] bg-[#FFE0B2] rounded-2xl shadow-2xl overflow-hidden border-4 border-white transform rotate-12 transition-transform duration-700 group-hover:rotate-15">
-                                <img src={lotsy} width="3375" height="1368" loading="lazy" className="w-full h-full object-cover" alt="" />
+                                <img src={CampaignVisuals_2} srcSet={`${CampaignVisuals_2} 600w, ${CampaignVisuals_2} 1200w`} sizes="160px" loading="lazy" decoding="async" className="w-full h-full object-cover" alt="" />
                             </div>
                         </div>
 
                         {/* Minimal Tool Mockup */}
                         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[70%] h-1 bg-white/20 rounded-full overflow-hidden">
-                            <div className="h-full w-1/3 bg-[#4A3B85] rounded-full" />
+                            {/* <div className="h-full w-1/3 bg-[#4A3B85] rounded-full" /> */}
                         </div>
                     </div>
 
@@ -91,17 +101,19 @@ export default function CreativeCorner() {
                             <p className="text-[#826756] dark:text-[#BFA185] text-[10px] uppercase tracking-[0.2em] font-bold mt-2 opacity-60 text-center md:text-left">Direction</p>
                         </div>
 
-                        <div className="relative md:absolute md:right-12 md:top-1/2 md:-translate-y-1/2 mt-10 md:mt-0 mockup-float flex items-center justify-center">
-                            {/* Grid preview mockup */}
-                            <div className="grid grid-cols-2 gap-2 w-[180px]">
-                                <div className="aspect-square bg-white/80 rounded-xl overflow-hidden shadow-sm border border-white/20">
-                                    <img src={moodofwood} width="2326" height="1127" loading="lazy" className="w-full h-full object-cover opacity-80" alt="" />
-                                </div>
-                                <div className="aspect-square bg-white/40 rounded-xl" />
-                                <div className="aspect-square bg-white/40 rounded-xl" />
-                                <div className="aspect-square bg-white/80 rounded-xl overflow-hidden shadow-sm border border-white/20">
-                                    <img src={hardware} width="420" height="162" loading="lazy" className="w-full h-full object-cover opacity-80" alt="" />
-                                </div>
+                        {/* Editorial Feeds — floating grid preview */}
+                        <div className="absolute inset-0 flex items-center justify-center mockup-float">
+                            <div
+                                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/60 dark:border-white/10 transition-transform duration-700 group-hover:rotate-0"
+                                style={{ width: '220px', aspectRatio: '1/1', transform: 'rotate(3deg)' }}
+                            >
+                                <img
+                                    src={EditorialFeeds}
+                                    loading="lazy"
+                                    decoding="async"
+                                    alt="Editorial Feeds"
+                                    className="w-full h-full object-cover object-top"
+                                />
                             </div>
                         </div>
                     </div>
@@ -109,12 +121,17 @@ export default function CreativeCorner() {
                     {/* Item 3: Carousel Narratives (Green) */}
                     <div className="bento-item rounded-[40px] p-10 relative overflow-hidden bg-[#E1F3D8] dark:bg-[#1A261A]">
                         <div className="relative z-10 flex flex-col h-full justify-between">
-                            <div className="w-full h-24 bg-gray-950/5 rounded-2xl border border-black/5 mockup-float flex items-center justify-center gap-2">
-                                <div className="w-8 h-8 rounded-lg bg-[#3B854A] shadow-lg" />
-                                <div className="w-8 h-8 rounded-lg bg-black/10" />
-                                <div className="w-8 h-8 rounded-lg bg-black/5" />
+                            <div className="absolute inset-0 flex items-center justify-center mockup-float">
+                                <img
+                                    src={CarouselNarratives}
+                                    loading="lazy"
+                                    decoding="async"
+                                    alt="Carousel Narratives"
+                                    className="w-[200px] h-[200px] object-cover rounded-2xl shadow-2xl border-4 border-white/60 dark:border-white/10"
+                                    style={{ transform: 'rotate(-3deg)' }}
+                                />
                             </div>
-                            <div>
+                            <div className="relative z-10 mt-auto">
                                 <h3 className="text-[#3B854A] dark:text-[#B8FFC5] text-xl font-bold tracking-tight">Carousel Narratives</h3>
                                 <p className="text-[#55A264] dark:text-[#8CBF98] text-[9px] uppercase tracking-[0.2em] font-bold mt-1 opacity-60">Storytelling</p>
                             </div>

@@ -1,7 +1,8 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import vadifyStoryImg from '../../assets/VadifyStory.webp'
+import vadifyStory600 from '../../assets/resized/VadifyStory-600.webp'
+import vadifyStory1200 from '../../assets/resized/VadifyStory-1200.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,10 +46,11 @@ export default function VadifyStory() {
                             }}
                         >
                             <img
-                                src={vadifyStoryImg}
-                                width="1244"
-                                height="1920"
+                                src={vadifyStory600}
+                                srcSet={`${vadifyStory600} 600w, ${vadifyStory1200} 1200w`}
+                                sizes="(max-width:768px) 100vw, 42vw"
                                 loading="lazy"
+                                decoding="async"
                                 alt="Vadify Founders"
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                             />

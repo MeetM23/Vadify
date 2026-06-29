@@ -97,7 +97,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
-
+                        
             {/* CTA */}
             <section className="py-20 px-6 bg-t-bg">
                 <AnimatedSection>

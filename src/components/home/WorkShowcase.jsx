@@ -2,16 +2,20 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import lotsy from '../../assets/Lotsy.webp'
-import foxplay from '../../assets/Foxplay-black.webp'
-import hardware from '../../assets/Hardware.webp'
-import moodOfWood from '../../assets/moodofwood.webp'
+import lotsy600 from '../../assets/resized/Lotsy-600.webp'
+import lotsy1200 from '../../assets/resized/Lotsy-1200.webp'
+import foxplay600 from '../../assets/resized/Foxplay-black-600.webp'
+import foxplay1200 from '../../assets/resized/Foxplay-black-1200.webp'
+import hardware200 from '../../assets/resized/Hardware-200.webp'
+import hardware400 from '../../assets/resized/Hardware-400.webp'
+import moodOfWood600 from '../../assets/resized/moodofwood-600.webp'
+import moodOfWood1200 from '../../assets/resized/moodofwood-1200.webp'
 
 const PROJECTS = [
-    { name: 'Lotsy', url: 'https://www.lotsy.in/', tag: 'E-commerce · UI/UX', image: lotsy, imgWidth: 3375, imgHeight: 1368, cover: true },
-    { name: 'Foxplay Clothing', url: 'https://www.foxplayclothing.com/', tag: 'E-commerce · Brand', image: foxplay, imgWidth: 3375, imgHeight: 1368, cover: true },
-    { name: 'Hardware Progress', url: 'https://hardwareprogress.com/', tag: 'Web · Development', image: hardware, imgWidth: 420, imgHeight: 162, cover: false },
-    { name: 'Mood of Wood', url: 'https://moodofwood.in/', tag: 'E-commerce · UI/UX', image: moodOfWood, imgWidth: 2326, imgHeight: 1127, cover: false },
+    { name: 'Lotsy', url: 'https://www.lotsy.in/', tag: 'E-commerce · UI/UX', image: lotsy600, srcSet: `${lotsy600} 600w, ${lotsy1200} 1200w`, cover: true },
+    { name: 'Foxplay Clothing', url: 'https://www.foxplayclothing.com/', tag: 'E-commerce · Brand', image: foxplay600, srcSet: `${foxplay600} 600w, ${foxplay1200} 1200w`, cover: true },
+    { name: 'Hardware Progress', url: 'https://hardwareprogress.com/', tag: 'Web · Development', image: hardware200, srcSet: `${hardware200} 200w, ${hardware400} 400w`, cover: false },
+    { name: 'Mood of Wood', url: 'https://moodofwood.in/', tag: 'E-commerce · UI/UX', image: moodOfWood600, srcSet: `${moodOfWood600} 600w, ${moodOfWood1200} 1200w`, cover: false },
 ]
 
 export default function WorkShowcase() {
@@ -58,7 +62,7 @@ export default function WorkShowcase() {
                             href={p.url} target="_blank" rel="noopener noreferrer"
                             className="group relative overflow-hidden rounded-2xl theme-card">
                             <div className="relative overflow-hidden h-60 md:h-72 bg-t-surface-2">
-                                <img src={p.image} width={p.imgWidth} height={p.imgHeight} loading="lazy" alt={p.name}
+                                <img src={p.image} srcSet={p.srcSet} sizes="(max-width:640px) 100vw, 50vw" loading="lazy" decoding="async" alt={p.name}
                                     className={`ws-img absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 ${p.cover ? 'object-cover' : 'object-contain p-8'}`} />
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-500" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

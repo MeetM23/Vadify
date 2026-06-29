@@ -134,26 +134,32 @@ export default function CaseStudyPage() {
                         {study.heroImageDark ? (
                             <>
                                 <img
-                                    src={study.heroImage}
-                                    width={study.imgWidth}
-                                    height={study.imgHeight}
+                                    src={study.heroImage600 || study.heroImage}
+                                    srcSet={study.heroSrcSet}
+                                    sizes="(max-width:768px) 100vw, 1200px"
                                     alt={study.brand}
+                                    loading="eager"
+                                    decoding="async"
                                     className={`transition-transform duration-700 dark:hidden ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
                                 />
                                 <img
-                                    src={study.heroImageDark}
-                                    width={study.imgWidth}
-                                    height={study.imgHeight}
+                                    src={study.heroImageDark600 || study.heroImageDark}
+                                    srcSet={study.heroSrcSetDark || study.heroSrcSet}
+                                    sizes="(max-width:768px) 100vw, 1200px"
                                     alt={study.brand}
+                                    loading="eager"
+                                    decoding="async"
                                     className={`transition-transform duration-700 hidden dark:block ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
                                 />
                             </>
                         ) : (
                             <img
-                                src={study.heroImage}
-                                width={study.imgWidth}
-                                height={study.imgHeight}
+                                src={study.heroImage600 || study.heroImage}
+                                srcSet={study.heroSrcSet}
+                                sizes="(max-width:768px) 100vw, 1200px"
                                 alt={study.brand}
+                                loading="eager"
+                                decoding="async"
                                 className={`transition-transform duration-700 ${study.cover ? 'w-full h-full object-cover object-center' : 'h-full w-auto max-w-full object-contain'}`}
                             />
                         )}
@@ -227,7 +233,7 @@ export default function CaseStudyPage() {
 
                         {/* Result image */}
                         <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--t-border)' }}>
-                            <img src={study.resultImg} width="1200" height="800" alt="Results" className="w-full h-60 md:h-72 object-cover" loading="lazy" />
+                            <img src={study.resultImg} width="1200" height="800" alt="Results" className="w-full h-60 md:h-72 object-cover" loading="lazy" decoding="async" />
                         </div>
                     </div>
 
@@ -300,11 +306,11 @@ export default function CaseStudyPage() {
                             >
                                 {s.heroImageDark ? (
                                     <>
-                                        <img src={s.heroImage} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover dark:hidden" loading="lazy" />
-                                        <img src={s.heroImageDark} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover hidden dark:block" loading="lazy" />
+                                        <img src={s.heroImage600 || s.heroImage} srcSet={s.heroSrcSet} sizes="(max-width:768px) 100vw, 33vw" alt={s.brand} className="absolute inset-0 w-full h-full object-cover dark:hidden" loading="lazy" decoding="async" />
+                                        <img src={s.heroImageDark600 || s.heroImageDark} srcSet={s.heroSrcSetDark || s.heroSrcSet} sizes="(max-width:768px) 100vw, 33vw" alt={s.brand} className="absolute inset-0 w-full h-full object-cover hidden dark:block" loading="lazy" decoding="async" />
                                     </>
                                 ) : (
-                                    <img src={s.heroImage} width={s.imgWidth} height={s.imgHeight} alt={s.brand} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                    <img src={s.heroImage600 || s.heroImage} srcSet={s.heroSrcSet} sizes="(max-width:768px) 100vw, 33vw" alt={s.brand} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
                                 )}
                                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%)' }} />
                                 <div className="relative">

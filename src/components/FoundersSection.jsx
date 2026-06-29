@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 
-import darshanPhoto from '../assets/About-Darshan.webp'
-import meetPhoto from '../assets/About-Meet.webp'
+import darshanPhoto260 from '../assets/resized/About-Darshan-260.webp'
+import darshanPhoto520 from '../assets/resized/About-Darshan-520.webp'
+import meetPhoto260 from '../assets/resized/About-Meet-260.webp'
+import meetPhoto520 from '../assets/resized/About-Meet-520.webp'
 
 /* ─────────────────────────────────────────────────────────────────
    EDIT THESE — replace with real names, roles, and photo imports
@@ -12,18 +14,16 @@ const FOUNDERS = [
         role: 'Founder',
         focus: 'Strategy & Growth',
         initials: 'DV',
-        photo: darshanPhoto,
-        imgWidth: 3376,
-        imgHeight: 6000,
+        photo260: darshanPhoto260,
+        photo520: darshanPhoto520,
     },
     {
         name: 'Meet Modasiya',
         role: 'Co-Founder',
         focus: 'Creative & Technology',
         initials: 'MM',
-        photo: meetPhoto,
-        imgWidth: 756,
-        imgHeight: 1008,
+        photo260: meetPhoto260,
+        photo520: meetPhoto520,
     },
 ]
 
@@ -159,20 +159,22 @@ const FounderCard = ({ founder, delay }) => {
                 className="relative mb-7 overflow-hidden"
                 style={{
                     width: '100%',
+                    borderRadius:'4px',
                     maxWidth: 260,
                     aspectRatio: '3/4',
                     background: 'var(--t-surface)',
                     border: '1px solid var(--t-border-solid)',
                 }}
             >
-                {founder.photo ? (
+                {founder.photo260 ? (
                     <img
-                        src={founder.photo}
-                        width={founder.imgWidth}
-                        height={founder.imgHeight}
+                        src={founder.photo260}
+                        srcSet={`${founder.photo260} 260w, ${founder.photo520} 520w`}
+                        sizes="(max-width:640px) 100vw, 260px"
                         loading="lazy"
+                        decoding="async"
                         alt={founder.name}
-                        className="absolute inset-0 w-full h-full object-cover "
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
                 ) : (
                     /* Placeholder — shows initials until a real photo is added */

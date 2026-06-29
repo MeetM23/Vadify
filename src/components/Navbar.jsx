@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
-import logoSvg from '../assets/vadify-logo.webp'
+import logo200 from '../assets/resized/vadify-logo-200.webp'
+import logo400 from '../assets/resized/vadify-logo-400.webp'
 
 const navLinks = [
     { name: 'Home', path: '/' },
@@ -90,7 +91,15 @@ export default function Navbar() {
             <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center">
-                    <img src={logoSvg} alt="Vadify" width="1821" height="466" className="h-7 w-auto" />
+                    <img
+                        src={logo200}
+                        srcSet={`${logo200} 200w, ${logo400} 400w`}
+                        sizes="(max-width:768px) 120px, 200px"
+                        alt="Vadify"
+                        loading="eager"
+                        decoding="async"
+                        className="h-7 w-auto"
+                    />
                 </Link>
 
                 {/* Desktop Links */}

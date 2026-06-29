@@ -40,19 +40,21 @@ export default function CaseStudiesPage() {
                                             {project.heroImageDark ? (
                                                 <>
                                                     <img
-                                                        src={project.heroImage}
-                                                        width={project.imgWidth}
-                                                        height={project.imgHeight}
+                                                        src={project.heroImage600 || project.heroImage}
+                                                        srcSet={project.heroSrcSet}
+                                                        sizes={project.heroSizes}
                                                         loading="lazy"
+                                                        decoding="async"
                                                         alt={project.brand}
                                                         className={`w-full h-full object-contain p-8 md:p-12 transition-transform duration-700 group-hover:scale-105 dark:hidden`}
                                                         style={{ objectPosition: 'center' }}
                                                     />
                                                     <img
-                                                        src={project.heroImageDark}
-                                                        width={project.imgWidth}
-                                                        height={project.imgHeight}
+                                                        src={project.heroImageDark600 || project.heroImageDark}
+                                                        srcSet={project.heroSrcSetDark || project.heroSrcSet}
+                                                        sizes={project.heroSizes}
                                                         loading="lazy"
+                                                        decoding="async"
                                                         alt={project.brand}
                                                         className={`w-full h-full object-contain p-8 md:p-12 transition-transform duration-700 group-hover:scale-105 hidden dark:block`}
                                                         style={{ objectPosition: 'center' }}
@@ -60,10 +62,11 @@ export default function CaseStudiesPage() {
                                                 </>
                                             ) : (
                                                 <img
-                                                    src={project.heroImage}
-                                                    width={project.imgWidth}
-                                                    height={project.imgHeight}
+                                                    src={project.heroImage600 || project.heroImage}
+                                                    srcSet={project.heroSrcSet}
+                                                    sizes={project.heroSizes}
                                                     loading="lazy"
+                                                    decoding="async"
                                                     alt={project.brand}
                                                     className={`w-full h-full object-contain p-8 md:p-12 transition-transform duration-700 group-hover:scale-105 ${project.slug === 'foxplay' && !project.cover ? 'invert dark:invert-0' : ''
                                                         }`}

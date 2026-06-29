@@ -7,6 +7,22 @@ import moodofwoodImg from '../assets/moodofwood.webp'
 import kbImg from '../assets/KB.webp'
 import trustOfQualityImg from '../assets/Trust of Quality.webp'
 
+// Resized variants for srcset
+import foxplay600 from '../assets/resized/Foxplay-black-600.webp'
+import foxplay1200 from '../assets/resized/Foxplay-black-1200.webp'
+import foxplayWhite600 from '../assets/resized/Foxplay-White-600.webp'
+import foxplayWhite1200 from '../assets/resized/Foxplay-White-1200.webp'
+import lotsy600 from '../assets/resized/Lotsy-600.webp'
+import lotsy1200 from '../assets/resized/Lotsy-1200.webp'
+import hardware200 from '../assets/resized/Hardware-200.webp'
+import hardware400 from '../assets/resized/Hardware-400.webp'
+import moodofwood600 from '../assets/resized/moodofwood-600.webp'
+import moodofwood1200 from '../assets/resized/moodofwood-1200.webp'
+import kb600 from '../assets/resized/KB-600.webp'
+import kb1200 from '../assets/resized/KB-1200.webp'
+import trustOfQuality600 from '../assets/resized/Trust of Quality-600.webp'
+import trustOfQuality1200 from '../assets/resized/Trust of Quality-1200.webp'
+
 export const CASE_STUDIES = {
 
     'hardware-progress': {
@@ -20,6 +36,10 @@ export const CASE_STUDIES = {
         headline: 'Technical Overhaul That Doubled Lead Quality',
         outcome: 'Rebuilt web infrastructure → 55% drop in bounce rate.',
         heroImage: hardwareImg,
+        heroImage600: hardware200,
+        heroImage1200: hardware400,
+        heroSrcSet: `${hardware200} 200w, ${hardware400} 400w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 420,
         imgHeight: 162,
         cover: true,
@@ -43,6 +63,10 @@ export const CASE_STUDIES = {
         headline: 'Scaled a Niche Furniture Brand with Precision Creative',
         outcome: 'Lifestyle creative system + Meta ads → 2.6× monthly revenue growth.',
         heroImage: moodofwoodImg,
+        heroImage600: moodofwood600,
+        heroImage1200: moodofwood1200,
+        heroSrcSet: `${moodofwood600} 600w, ${moodofwood1200} 1200w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 2326,
         imgHeight: 1127,
         cover: true,
@@ -73,6 +97,10 @@ export const CASE_STUDIES = {
         headline: 'Cinematic Offline Super Store Launch',
         outcome: 'Premium video production and shoot for large-scale retail like Amazon.',
         heroImage: kbImg,
+        heroImage600: kb600,
+        heroImage1200: kb1200,
+        heroSrcSet: `${kb600} 600w, ${kb1200} 1200w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 10547,
         imgHeight: 13184,
         cover: true,
@@ -94,6 +122,10 @@ export const CASE_STUDIES = {
         headline: 'Elegant Visuals for Luxury Jewellery',
         outcome: 'High-end video editing and shoot production highlighting intricate details.',
         heroImage: trustOfQualityImg,
+        heroImage600: trustOfQuality600,
+        heroImage1200: trustOfQuality1200,
+        heroSrcSet: `${trustOfQuality600} 600w, ${trustOfQuality1200} 1200w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 10547,
         imgHeight: 13184,
         cover: true,
@@ -115,7 +147,14 @@ export const CASE_STUDIES = {
         headline: 'Built a Brand Identity That Converts at Scroll',
         outcome: 'Full brand + Meta creative system → 3× conversion rate uplift.',
         heroImage: foxplayWhiteImg,
+        heroImage600: foxplayWhite600,
+        heroImage1200: foxplayWhite1200,
+        heroSrcSet: `${foxplayWhite600} 600w, ${foxplayWhite1200} 1200w`,
         heroImageDark: foxplayImg,
+        heroImageDark600: foxplay600,
+        heroImageDark1200: foxplay1200,
+        heroSrcSetDark: `${foxplay600} 600w, ${foxplay1200} 1200w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 3375,
         imgHeight: 1368,
         cover: true,
@@ -145,6 +184,10 @@ export const CASE_STUDIES = {
         headline: 'From Zero Traction to 4× ROAS in 60 Days',
         outcome: 'Restructured ad account + landing page → consistent daily revenue.',
         heroImage: lotsyImg,
+        heroImage600: lotsy600,
+        heroImage1200: lotsy1200,
+        heroSrcSet: `${lotsy600} 600w, ${lotsy1200} 1200w`,
+        heroSizes: '(max-width:640px) 100vw, 50vw',
         imgWidth: 3375,
         imgHeight: 1368,
         cover: true,
